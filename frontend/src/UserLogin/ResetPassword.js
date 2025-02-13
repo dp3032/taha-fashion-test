@@ -24,7 +24,7 @@ const ResetPassword = () => {
 
         try {
             setIsLoading(true); // Show loading spinner
-            const response = await axios.post(`${apiUrl}/resetpassword/${token}`, {
+            const response = await axios.post(`${apiUrl}/user-log-reg/resetpassword/${token}`, {
                 password,
                 confirmPassword,
             });
