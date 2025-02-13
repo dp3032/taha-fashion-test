@@ -1,0 +1,3 @@
+_id,productId,rating,message,name,rating_date,createdAt,__v
+679b53bfdbdb0c2d5dad5b39,67937f96f593ee02376fc159,2,user,user,30/01/2025,2025-01-30T10:26:07.499Z,0
+679b53cfdbdb0c2d5dad66fd,67937f96f593ee02376fc159,4,user hello,user,30/01/2025,2025-01-30T10:26:23.972Z,0
