@@ -1,0 +1,86 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.1",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@lordicon/react": "^1.10.1",
+    "@mui/icons-material": "^6.1.10",
+    "@react-oauth/google": "^0.12.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^4.6.0",
+    "chart.js": "^4.4.7",
+    "date-fns": "^4.1.0",
+    "date-fns-tz": "^3.2.0",
+    "email-validator": "^2.0.4",
+    "font-awesome": "^4.7.0",
+    "gsap": "^3.12.7",
+    "jquery": "^3.7.1",
+    "jspdf": "^2.5.2",
+    "jwt-decode": "^4.0.0",
+    "lenis": "^1.1.20",
+    "libphonenumber-js": "^1.11.17",
+    "lord-icon-element": "^4.1.2",
+    "magnific-popup": "^1.2.0",
+    "moment": "^2.30.1",
+    "node-fetch": "^3.3.2",
+    "owl.carousel": "^2.3.4",
+    "quill": "^2.0.3",
+    "quill-table": "^1.0.0",
+    "react": "^18.3.1",
+    "react-calendar": "^5.1.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.3.1",
+    "react-google-recaptcha": "^3.1.0",
+    "react-icons": "^5.4.0",
+    "react-loader-spinner": "^6.1.6",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^7.0.2",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.9.0",
+    "react-slick": "^0.30.2",
+    "react-toastify": "^11.0.3",
+    "react-zoom-pan-pinch": "^3.6.1",
+    "slick-carousel": "^1.8.1",
+    "slicknav": "^1.0.8",
+    "swiper": "^11.2.2",
+    "use-history": "^1.4.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start --host 0.0.0.0",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
