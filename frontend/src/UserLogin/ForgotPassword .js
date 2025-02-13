@@ -21,7 +21,7 @@ const ForgotPassword = () => {
 
         try {
             setIsLoading(true);
-            await axios.post(`${apiUrl}/forgotpassword`, { email }); // Removed unused response
+            await axios.post(`${apiUrl}/user-log-reg/forgotpassword`, { email }); // Removed unused response
             setMessage('Reset password link has been sent to your email address');
         } catch (error) {
             setMessage(
