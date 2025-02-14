@@ -55,7 +55,7 @@ router.post('/add-admin-main-banner', mainBannerUpload.array('mainBannerImg'), a
 //Display Main Banner
 router.get('/display-admin-main-banner', apiKeyMiddleware , async (req, res) => {
     try {
-      const mainAdminBanner = await MainBannerAdmin.find()
+      const mainAdminBanner = await MainBannerAdmin.find().sort({ createdAt: -1});
       res.status(200).json(mainAdminBanner);
     } catch (error) {
       console.error('Error fetching mainAdminBanner:', error);
