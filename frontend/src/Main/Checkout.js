@@ -139,6 +139,12 @@ const Checkout = () => {
             contact: contactnumber,
           },
           theme: { color: '#F37254' },
+          modal: {
+            ondismiss: function () {
+              alert('Payment process was canceled.');
+              window.location.href = "/checkout";
+            },
+          },
         };
 
         const razorpay = new window.Razorpay(options);
