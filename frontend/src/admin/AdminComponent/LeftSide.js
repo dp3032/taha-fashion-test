@@ -161,14 +161,14 @@ const LeftSide = () => {
                                 <p className="icontxt">Order</p>
                             </a>
 
-                            <a href="/transactions" className="list-group-item list-group-item-action py-2 ripple dropul">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/rtppuwsh.json"
-                                    trigger="morph"
-                                    state="morph-alone">
-                                </lord-icon>
-                                <p className="icontxt">Transaction</p>
-                            </a>
+                            // <a href="/transactions" className="list-group-item list-group-item-action py-2 ripple dropul">
+                            //     <lord-icon
+                            //         src="https://cdn.lordicon.com/rtppuwsh.json"
+                            //         trigger="morph"
+                            //         state="morph-alone">
+                            //     </lord-icon>
+                            //     <p className="icontxt">Transaction</p>
+                            // </a>
 
                             <ul className="list-group-item list-group-item-action py-2 ripple dropul">
                                 <lord-icon
