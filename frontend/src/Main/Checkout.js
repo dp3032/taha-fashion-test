@@ -62,10 +62,10 @@ const Checkout = () => {
     setLoading(true);
     const scriptLoaded = await loadRazorpayScript();
     if (!scriptLoaded) {
-        alert('Razorpay SDK failed to load. Please check your internet connection.');
-        setLoading(false);
-        return;
-      }
+      alert('Razorpay SDK failed to load. Please check your internet connection.');
+      setLoading(false);
+      return;
+    }
     try {
       const data = {
         user_id: sessionStorage.getItem('user_id'),
@@ -89,16 +89,16 @@ const Checkout = () => {
         })),
         amount: totalAmount,
       };
-
+  
       const response = await axios.post(`${apiUrl}/order-api/save-order`, data, {
         headers: {
           "x-api-key": process.env.REACT_APP_API_KEY,
         },
       });
-
+  
       if (response.data.success) {
         const { id, amount } = response.data;
-
+  
         const options = {
           key: razorpayKey,
           amount: amount * 100,
@@ -108,30 +108,32 @@ const Checkout = () => {
           order_id: id,
           handler: async function (paymentResponse) {
             const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = paymentResponse;
-
+  
             const verificationPayload = {
               payment_id: razorpay_payment_id,
               order_id: razorpay_order_id,
               signature: razorpay_signature,
+              orderDetails: data,
             };
-
-            try {
+            
+          try {
               const verificationResponse = await axios.post(`${apiUrl}/order-api/verify-payment`, verificationPayload, {
-                headers: {
-                  "x-api-key": process.env.REACT_APP_API_KEY,
-                },
+                headers: { "x-api-key": process.env.REACT_APP_API_KEY },
               });
-
+          
+              console.log("Verification Response:", verificationResponse.data);
+          
               if (verificationResponse.data.success) {
                 sessionStorage.removeItem('cart');
                 window.location.replace('/paymentsuccess');
               } else {
-                alert('Payment verification failed.');
+                console.error("Verification failed, redirecting to failure page");
                 window.location.replace('/paymentfailure');
               }
-            } catch (error) {
-              alert('Payment verification failed.');
-            }
+          } catch (error) {
+              console.error("Verification request failed", error);
+              window.location.replace('/paymentfailure');
+          }          
           },
           prefill: {
             name: Name,
@@ -141,13 +143,18 @@ const Checkout = () => {
           theme: { color: '#F37254' },
           modal: {
             ondismiss: function () {
-              alert('Payment process was canceled.');
-              window.location.href = "/checkout";
+              window.location.replace('/paymentfailure');
             },
           },
         };
-
+  
         const razorpay = new window.Razorpay(options);
+  
+        // Razorpay's built-in failure event
+        razorpay.on('payment.failed', function () {
+          window.location.replace('/paymentfailure');
+        });
+  
         razorpay.open();
       } else {
         alert('Order creation failed.');
