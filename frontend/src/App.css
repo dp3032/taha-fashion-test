@@ -761,25 +761,6 @@ table th {
 
 
 /* src/components/ThankYouPage.css */
-.thank-you-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f7f7;
-  font-family: "Roboto";
-}
-
-.thank-you-message {
-  text-align: center;
-  background-color: white;
-  border-radius: 10px;
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-}
-
 .thank-you-message h1 {
   font-size: 2.5rem;
   color: #4caf50;
@@ -1350,22 +1331,22 @@ table th {
   cursor: pointer;
 }
 
+/*  */
 .thank-you-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f8f9fa;
+  margin: 72px 0;
   animation: fadeIn 2s ease-in-out;
 }
 
 .thank-you-message {
+  width: 50%;
   text-align: center;
   background-color: white;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-30px);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   animation: slideIn 1.5s ease-out forwards;
 }
 
@@ -1425,29 +1406,6 @@ table th {
   }
 }
 
-.failure-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f8f9fa;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.failure-message {
-  text-align: center;
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-30px);
-  animation: slideIn 1.5s ease-out forwards;
-}
-
-.failure-character svg {
-  animation: shake 1s ease-in-out infinite;
-}
-
 @keyframes shake {
   0%, 100% {
     transform: rotate(0deg);
@@ -1474,8 +1432,8 @@ table th {
   transition: transform 0.3s ease;
 }
 
-.btn-error:hover {
-  transform: scale(1.1);
+.btn-error:hover{
+  color: white;
 }
 
 /* Responsive styles */
