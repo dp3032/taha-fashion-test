@@ -10,8 +10,6 @@ const sendEmail = require("../Emailsent/sendOrderEmail");
 
 const Order = require('../../model/Order');
 const Product = require('../../model/product');
-const Refund = require('../../model/payment-refund'); 
-const RetunOrder = require('../../model/retun-order');  
 const Notification = require('../../model/Notification');  
 
 
@@ -205,40 +203,6 @@ router.post('/save-order', apiKeyMiddleware , async (req, res) => {
     }
   });
   
-  //Display to get all transactions of Razore Pay
-  router.get('/transactions' , async (req, res) => {
-    try {
-      const razorpay = new (require('razorpay'))({
-        key_id: process.env.RAZORPAY_KEY_ID,
-        key_secret: process.env.RAZORPAY_KEY_SECRET
-      });
-  
-      let transactions = [];
-      let page = 1;
-      let hasMore = true;
-  
-      while (hasMore) {
-        const response = await razorpay.payments.all({
-          count: 50, 
-          page: page,
-        });
-  
-        // Add the order_id for each transaction
-        const transactionsWithOrderId = response.items.map(transaction => ({
-          ...transaction,
-          order_id: transaction.order_id,
-        }));
-  
-        transactions = transactions.concat(transactionsWithOrderId);
-        page += 1;
-        hasMore = response.items.length > 0; 
-      }
-  
-      res.json({ transactions });
-    } catch (error) {
-      res.status(500).json({ message: 'Error fetching transactions', error: error.message });
-    }
-  });
   
   //All Order Display
   router.get('/ordersonly', apiKeyMiddleware, async (req, res) => {
@@ -381,119 +345,6 @@ router.post('/save-order', apiKeyMiddleware , async (req, res) => {
     } catch (error) {
       console.error('Error fetching orders:', error);
       res.status(500).json({ success: false, message: 'NetWork Problem' });
-    }
-  });
-  
-  //User Delete Order and data Was Store In Refund Database
-  router.delete("/delete-order/:id", async (req, res) => {
-    const { id } = req.params;  // Use req.params instead of req.query
-    try {
-      // Fetch the order before deleting
-      const order = await Order.findById(id);
-  
-      if (!order) {
-        return res.status(404).json({ message: "Order not found" });
-      }
-  
-      // Store the order in the Refund collection before deletion
-      const refund = new Refund({
-        user_id: order.user_id,
-        order_id: order._id,
-        UserName: order.UserName,
-        Name: order.Name,
-        email: order.email,
-        address: order.address,
-        city: order.city,
-        state: order.state,
-        zipcode: order.zipcode,
-        contactnumber: order.contactnumber,
-        note: order.note,
-        products: order.products,
-        totalAmount: order.totalAmount,
-        paymentMethod: order.paymentMethod,
-        razorpay_order_id: order.razorpay_order_id,
-        paymentDetails: order.paymentDetails,
-        order_date: order.order_date,
-        status: order.order_status || 'Pending'  // Or whatever status you need for refunded orders
-      });
-  
-      // Save the refunded order in the Refund collection
-      await refund.save();
-  
-      await sendRefundEmail(refund, order.email);
-  
-      // Delete the order from the Order collection
-      await Order.findByIdAndDelete(id);
-  
-      // Send notification for refund
-      const notificationMessage = `Order ${order.UserName} has been refunded request total amount ${order.totalAmount}`;
-      await Notification.create({
-        type: 'order-refund',
-        message: notificationMessage,
-        username: order.UserName,
-      });
-  
-      res.status(200).json({ message: "Order Cancelled and Refund in Processing..." });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Server error", error: error.message });
-    }
-  });
-  
-  //User Return Order 
-  router.delete("/return-order/:id", async (req, res) => {
-    const { id } = req.params;
-    const { reason } = req.body; 
-  
-    if (!reason || reason.trim() === "") {
-      return res.status(400).json({ message: "Return reason is required." });
-    }
-  
-    try {
-      const order = await Order.findById(id);
-  
-      if (!order) {
-        return res.status(404).json({ message: "Order not found" });
-      }
-  
-      const retunorder = new RetunOrder({
-        user_id: order.user_id,
-        order_id: order._id,
-        UserName: order.UserName,
-        Name: order.Name,
-        email: order.email,
-        address: order.address,
-        city: order.city,
-        state: order.state,
-        zipcode: order.zipcode,
-        contactnumber: order.contactnumber,
-        products: order.products,
-        totalAmount: order.totalAmount,
-        paymentMethod: order.paymentMethod,
-        razorpay_order_id: order.razorpay_order_id,
-        paymentDetails: order.paymentDetails,
-        order_date: order.order_date,
-        reason,
-        Retunorder_status: 'Pending',
-      });
-  
-      await retunorder.save();
-  
-      await sendReturnOrderEmail(retunorder, order.email);
-  
-      await Order.findByIdAndDelete(id);
-  
-      const notificationMessage = `Order ${order.UserName} has been returned request total amount : ${order.totalAmount}`;
-      await Notification.create({
-        type: 'order-return',
-        message: notificationMessage,
-        username: order.UserName,
-      });
-  
-      res.status(200).json({ message: "Return Order in Processing..." });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Server error", error: error.message });
     }
   });
 
