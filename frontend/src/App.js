@@ -1,9 +1,7 @@
-// App.js
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminProtectedRoute from './AdminProtectedRoute ';
 import useAuth from './useAuth';
-
 
 import Home from './Main/Home';
 import Shop from './Main/Shop';
@@ -35,7 +33,6 @@ import ViewRefundDetails from './admin/Refund/ViewRefundDetils';
 import LeftSide from './admin/AdminComponent/LeftSide';
 import Analytics from './admin/MainPage/Analytics';
 import UserDisplay from './admin/MainPage/UserDisplay';
-import Transactions from './admin/Order/Transactions ';
 import AddCategory from './admin/ProductAdmin/AddCategory';
 import Report from './admin/report/Report';
 import UserReport from './admin/report/UserReport';
@@ -44,11 +41,6 @@ import OrderRefund from './admin/Refund/OrderRefund';
 import DisplayReturnOrder from './admin/Return-Order/DisplayReturnOrder';
 import ViewReturnOrderDetils from './admin/Return-Order/ViewReturnOrderDetils';
 import ProductReport from './admin/report/ProductReport';
-// import RefundReport from './admin/report/RefundReport';
-// import ReturnReport from './admin/report/ReturnReport';
-// import AddClients from './admin/Aboutus/AddClients';
-// import DisplayClients from './admin/Aboutus/DisplayClients';
-// import EditClients from './admin/Aboutus/EditClients';
 import ProductSize from './product/Size/ProductSize';
 import UserReview from './admin/ProductAdmin/UserReview';
 import Infomation from './admin/Contactus/Infomation';
@@ -61,7 +53,6 @@ import MainBannerAdmin from './admin/Gallery-Image-Admin/MainBannerAdmin';
 import PrivacyPolicy from './Terms/PrivacyPolicy';
 import TermsConditions from './Terms/TermsConditions';
 import RefundPolicy from './Terms/RefundPolicy';
-// import Phonepe from './Main/phonepe/Phonepe';
 
 function App() {  
   useAuth();
@@ -85,7 +76,6 @@ function App() {
         <Route path="/myreturn" element={<MyReturn/>}/>
         <Route path="/userrefund" element={<UserRefund/>}/>
         <Route path="/forgotpassword" element={<ForgotPassword/>}/>
-        {/* <Route path="/phonepe" element={<Phonepe/>}/> */}
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/paymentsuccess" element={<ThankYouPage />} />
         <Route path="/paymentfailure" element={<Paymentfail/>} />   
@@ -113,17 +103,11 @@ function App() {
         <Route path="/orderrefunddetils" element={<AdminProtectedRoute element={<ViewRefundDetails />} />} />
         <Route path="/returnorder" element={<AdminProtectedRoute element={<DisplayReturnOrder />} />} />
         <Route path="/returnorderdetils" element={<AdminProtectedRoute element={<ViewReturnOrderDetils />} />} />
-        <Route path="/transactions" element={<AdminProtectedRoute element={<Transactions />} />} />
         <Route path="/report" element={<AdminProtectedRoute element={<Report />} />} />
         <Route path="/userreport" element={<AdminProtectedRoute element={<UserReport />} />} />
         <Route path="/orderreport" element={<AdminProtectedRoute element={<OrderReport />} />} />
         <Route path="/productreport" element={<AdminProtectedRoute element={<ProductReport />} />} />
-        {/* <Route path="/refundreport" element={<AdminProtectedRoute element={<RefundReport />} />} />
-        <Route path="/returnreport" element={<AdminProtectedRoute element={<ReturnReport />} />} /> */}
         <Route path="/leftside" element={<AdminProtectedRoute element={<LeftSide/>} />}/>
-        {/* <Route path="/addclient" element={<AdminProtectedRoute element={<AddClients />} />} />
-        <Route path="/edit-cilent" element={<AdminProtectedRoute element={<EditClients/>} />}/>
-        <Route path="/displayclient" element={<AdminProtectedRoute element={<DisplayClients />} />} /> */}
         <Route path="/admincontact" element={<AdminProtectedRoute element={<AdminContact/>} />}/>
         <Route path="/contactinfomation" element={<AdminProtectedRoute element={<Infomation/>} />}/>
         <Route path="/edit-contact-infomation" element={<AdminProtectedRoute element={<EditInfo/>} />}/>
