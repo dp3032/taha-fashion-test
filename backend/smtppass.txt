@@ -1,6 +1,0 @@
-user: 'use32300@gmail.com'
-pass: 'raqp uymm vqqd gega',
-
-razorpay 
-Key Id : rzp_test_ulUnmAPDcYThiY
-Key Secret : SkGJHaT4lzu2Ar7VAK2WoQbs
