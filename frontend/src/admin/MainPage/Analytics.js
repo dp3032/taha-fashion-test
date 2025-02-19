@@ -1,7 +1,7 @@
 import React from 'react'
 import ViewCountChart from "../AdminComponent/ViewCountChart";
 import ProductPieChart from "../AdminComponent/ProductPieChart";
-import OrderRefundChart from "../AdminComponent/OrderRefundChart ";
+import OrderChart  from "../AdminComponent/OrderChart  ";
 import LeftSide from '../AdminComponent/LeftSide';
 import AmountChartBar from '../AdminComponent/AmountChartBar';
 import NotifactionAdmin from '../AdminComponent/NotifactionAdmin';
@@ -41,7 +41,7 @@ return (
                     <div className="col-lg-12">
                         <div className="row">
                             <div className="col-lg-5">
-                                <OrderRefundChart/>
+                                <OrderChart/>
                             </div>
                             <div className="col-lg-2">
                                 <p></p>

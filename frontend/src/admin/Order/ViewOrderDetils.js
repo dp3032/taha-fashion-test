@@ -90,7 +90,6 @@ function ViewOrderDetails() {
 
     const orderpage = () => {
       sessionStorage.removeItem("displayorderId");
-      sessionStorage.removeItem("displayrefundId");
       window.location.href="/displayorder";
     }
 
