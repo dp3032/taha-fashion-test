@@ -1394,3 +1394,7 @@ input:checked + .toggle-slider:before {
 .titlecapi{
   text-transform: capitalize;
 }
+
+.resetpassbtn{
+  margin-top: 20px;
+}
