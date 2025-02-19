@@ -13,9 +13,7 @@ import Checkout from './Main/Checkout';
 import Registration from './UserLogin/Registration';
 import Login from './UserLogin/Login';
 import MyOrder from './page/MyOrder';
-import MyReturn from './page/MyReturn';
 import FilterProduct from './product/Categories/FilterProduct';
-import UserRefund from './page/UserRefund';
 import ForgotPassword from './UserLogin/ForgotPassword ';
 import ResetPassword from './UserLogin/ResetPassword';
 import ThankYouPage from './payment/ThankYouPage';
@@ -29,7 +27,6 @@ import AdminContact from './admin/Contactus/AdminContact';
 import Displayproduct from './admin/ProductAdmin/Displayproduct';
 import DisplayOrder from './admin/Order/DisplayOrder';
 import ViewOrderDetils from './admin/Order/ViewOrderDetils';
-import ViewRefundDetails from './admin/Refund/ViewRefundDetils';
 import LeftSide from './admin/AdminComponent/LeftSide';
 import Analytics from './admin/MainPage/Analytics';
 import UserDisplay from './admin/MainPage/UserDisplay';
@@ -37,9 +34,6 @@ import AddCategory from './admin/ProductAdmin/AddCategory';
 import Report from './admin/report/Report';
 import UserReport from './admin/report/UserReport';
 import OrderReport from './admin/report/OrderReport';
-import OrderRefund from './admin/Refund/OrderRefund';
-import DisplayReturnOrder from './admin/Return-Order/DisplayReturnOrder';
-import ViewReturnOrderDetils from './admin/Return-Order/ViewReturnOrderDetils';
 import ProductReport from './admin/report/ProductReport';
 import ProductSize from './product/Size/ProductSize';
 import UserReview from './admin/ProductAdmin/UserReview';
@@ -73,8 +67,6 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/myorder" element={<MyOrder/>}/>
-        <Route path="/myreturn" element={<MyReturn/>}/>
-        <Route path="/userrefund" element={<UserRefund/>}/>
         <Route path="/forgotpassword" element={<ForgotPassword/>}/>
         <Route path="/resetpassword/:token" element={<ResetPassword />} />
         <Route path="/paymentsuccess" element={<ThankYouPage />} />
@@ -99,10 +91,6 @@ function App() {
         <Route path="/addcategory" element={<AdminProtectedRoute element={<AddCategory />} />} />
         <Route path="/displayorder" element={<AdminProtectedRoute element={<DisplayOrder/>} />}/>
         <Route path="/vieworder" element={<AdminProtectedRoute element={<ViewOrderDetils />} />} />
-        <Route path="/orderrefund" element={<AdminProtectedRoute element={<OrderRefund />} />} />
-        <Route path="/orderrefunddetils" element={<AdminProtectedRoute element={<ViewRefundDetails />} />} />
-        <Route path="/returnorder" element={<AdminProtectedRoute element={<DisplayReturnOrder />} />} />
-        <Route path="/returnorderdetils" element={<AdminProtectedRoute element={<ViewReturnOrderDetils />} />} />
         <Route path="/report" element={<AdminProtectedRoute element={<Report />} />} />
         <Route path="/userreport" element={<AdminProtectedRoute element={<UserReport />} />} />
         <Route path="/orderreport" element={<AdminProtectedRoute element={<OrderReport />} />} />
