@@ -134,24 +134,6 @@ const LeftSide = () => {
                                 <p className="icontxt">Analytics</p>
                             </a>
 
-                            {/* <ul className="list-group-item list-group-item-action py-2 ripple dropul">
-                                <lord-icon
-                                    src="icon/wired-outline-108-box-package.json"
-                                    trigger="hover"
-                                    state="loop-all">
-                                </lord-icon>
-                                <li className="icontxt">
-                                    <p className="dropp admintxt" onClick={toggleDropdownfour}>Order</p>
-                                    {isDropdownOpenfour && (
-                                        <ul className="dropdown dropul">
-                                            <li><a href="/displayorder" className="droptxt">Display</a></li>
-                                            <li><a href="/orderrefund" className="droptxt">Refund</a></li>
-                                            <li><a href="/returnorder" className="droptxt">Order Return</a></li>
-                                        </ul>
-                                    )}
-                                </li>
-                            </ul> */}
-
                             <a href="/displayorder" className="list-group-item list-group-item-action py-2 ripple dropul">
                                 <lord-icon
                                     src="icon/wired-outline-108-box-package.json"
@@ -160,15 +142,6 @@ const LeftSide = () => {
                                 </lord-icon>
                                 <p className="icontxt">Order</p>
                             </a>
-
-                            // <a href="/transactions" className="list-group-item list-group-item-action py-2 ripple dropul">
-                            //     <lord-icon
-                            //         src="https://cdn.lordicon.com/rtppuwsh.json"
-                            //         trigger="morph"
-                            //         state="morph-alone">
-                            //     </lord-icon>
-                            //     <p className="icontxt">Transaction</p>
-                            // </a>
 
                             <ul className="list-group-item list-group-item-action py-2 ripple dropul">
                                 <lord-icon
@@ -185,15 +158,6 @@ const LeftSide = () => {
                                     )}
                                 </li>
                             </ul>
-
-                            {/* <a href="/displayclient" className="list-group-item list-group-item-action py-2 ripple dropul">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/pfvaixkr.json"
-                                    trigger="hover"
-                                    state="hover-slide">
-                                </lord-icon>
-                                <p className="icontxt">Client</p>
-                            </a> */}
 
                             <ul className="list-group-item list-group-item-action py-2 ripple dropul">
                                 <lord-icon
