@@ -4,7 +4,7 @@ import { Chart as ChartJS, Tooltip, Legend, ArcElement, CategoryScale, LinearSca
 
 ChartJS.register(Tooltip, Legend, ArcElement, CategoryScale, LinearScale);
 
-const OrderChart  = () => {
+const OrderRefundChart  = () => {
   const apiUrl = process.env.REACT_APP_BASE_URL;
   const [orderCount, setOrderCount] = useState(0);
   const [ordersuccessCount, setordersuccessCount] = useState(0);
@@ -62,4 +62,4 @@ const OrderChart  = () => {
   );
 };
 
-export default React.memo(OrderChart);
+export default React.memo(OrderRefundChart);
